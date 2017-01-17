@@ -2,7 +2,12 @@ checkout:
   post:
     - git submodule sync
     - git submodule update --init
-    dependencies:
+    
+    checkout:
+  post:
+    - cp ./ci-server/config.yml ./app-server/config.yml
+    
+  dependencies:
   post:
     - python ./install-packages
     database:
